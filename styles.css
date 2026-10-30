@@ -19,7 +19,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%
 }
 
 body {
@@ -126,8 +127,8 @@ nav .nav-cta:hover {
 
 .burger {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: 1px solid var(--line);
   border-radius: 50%;
@@ -137,19 +138,19 @@ nav .nav-cta:hover {
 
 .burger span {
   position: absolute;
-  left: 12px;
-  right: 12px;
+  left: 13px;
+  right: 13px;
   height: 2px;
   background: var(--ink);
   transition: transform .25s
 }
 
 .burger span:nth-child(1) {
-  top: 16px
+  top: 17px
 }
 
 .burger span:nth-child(2) {
-  top: 24px
+  top: 25px
 }
 
 .burger[aria-expanded=true] span:nth-child(1) {
@@ -358,6 +359,32 @@ h1 {
   color: var(--mute)
 }
 
+.project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 1.5rem 0;
+  list-style: none;
+}
+
+.project-features li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+}
+
+.project-features li b {
+  flex: 0 0 125px;
+  font-size: 0.95rem;
+}
+
+.project-features li span {
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
 /* trayectoria */
 .timeline {
   list-style: none;
@@ -467,9 +494,51 @@ h1 {
   transform: none;
 }
 
-@media (max-width:860px) {
+/* =====================================================
+   RESPONSIVE (todo lo de abajo solo afecta pantallas chicas)
+   ===================================================== */
+
+/* Notebook chica y tablet horizontal:
+   evita que la imagen se salga de la pantalla */
+@media (max-width: 1180px) {
+  .hero {
+    margin-bottom: 4rem
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-inline: var(--pad) /* margen izquierdo y derecho */
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.4rem)
+  }
+}
+
+/* Tablet vertical y celulares */
+@media (max-width: 860px) {
+  :root {
+    --pad: 1.25rem /* margen lateral en celulares (20 px) */
+  }
+
+  html {
+    scroll-padding-top: 64px
+  }
+
+  /* menú */
+  .bar {
+    padding: .7rem var(--pad)
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2
+  }
+
   .burger {
-    display: block
+    display: block;
+    z-index: 2
   }
 
   nav {
@@ -480,8 +549,9 @@ h1 {
     justify-content: center;
     gap: 1.4rem;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity .25s
+    transition: opacity .25s, visibility .25s
   }
 
   nav a {
@@ -497,52 +567,161 @@ h1 {
 
   nav.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto
   }
 
-  .burger {
-    z-index: 2
+  body:has(nav.open) {
+    overflow: hidden
   }
 
-  .hero-grid,
+  /* hero: texto arriba, imagen abajo */
+  .hero {
+    padding: 2rem 0 3rem;
+    margin-bottom: 0
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 9.5vw, 3rem);
+    line-height: 1.06;
+    margin-bottom: 1rem
+  }
+
+  .hero-sub {
+    font-size: 1.02rem;
+    max-width: none;
+    margin-bottom: 1.5rem
+  }
+
+  .hero-cta {
+    flex-direction: column
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.4rem
+  }
+
+  .hero-fig {
+    min-height: 0;
+    aspect-ratio: 672 / 689; /* la misma proporción de tus imágenes */
+    max-width: 620px;
+    border-radius: 18px
+  }
+
+  .hero-fig .c-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem
+  }
+
+  .hero-fig .c-btn.prev {
+    left: .5rem
+  }
+
+  .hero-fig .c-btn.next {
+    right: .5rem
+  }
+
+  /* secciones */
+  .sec {
+    padding: 3rem 0
+  }
+
+  h2 {
+    max-width: none;
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    margin-bottom: 1.2rem
+  }
+
   .two,
   .cards {
     grid-template-columns: 1fr
   }
 
-  .hero-fig {
-    min-height: 0;
-    aspect-ratio: 5 / 4
+  .two {
+    gap: 1.2rem
   }
 
-  .feat li {
+  .prose p,
+  .lead {
+    font-size: 1rem
+  }
+
+  .card {
+    padding: 1.3rem
+  }
+
+  .card h3 {
+    font-size: 1.3rem
+  }
+
+  /* funciones de Card Station: una debajo de otra, alineadas a la izquierda */
+  .feat {
+    text-align: left !important
+  }
+
+  .project-features {
+    margin: 0;
+    gap: .7rem
+  }
+
+  .feat li,
+  .project-features li {
     flex-direction: column;
-    gap: 0
+    align-items: flex-start;
+    gap: .15rem
+  }
+
+  .project-features li b {
+    flex: none;
+    font-size: 1rem
+  }
+
+  /* trayectoria */
+  .timeline {
+    padding-left: 2rem
+  }
+
+  .dot {
+    left: -2rem
+  }
+
+  .timeline b {
+    font-size: 1.15rem
+  }
+
+  /* contacto y pie */
+  .mail {
+    font-size: clamp(1.1rem, 6vw, 1.7rem)
+  }
+
+  .social {
+    flex-wrap: wrap;
+    gap: 1rem 1.4rem
+  }
+
+  .foot {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    text-align: center
   }
 }
 
-.project-features {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    margin: 1.5rem 0;
-    list-style: none;
-}
+/* Celulares chicos */
+@media (max-width: 400px) {
+  body {
+    font-size: 1rem
+  }
 
-.project-features li {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    width: 100%;
-}
-
-.project-features li b {
-    flex: 0 0 125px;
-    font-size: 0.95rem;
-}
-
-.project-features li span {
-    color: var(--mute);
-    font-size: 0.9rem;
+  .btn {
+    padding: .9rem 1.2rem
+  }
 }
