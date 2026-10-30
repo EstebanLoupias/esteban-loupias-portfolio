@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f472b6"/><stop offset="1" stop-color="#fb923c"/></linearGradient></defs>
+<rect width="800" height="640" fill="#eef0ff"/>
+<rect x="40" y="40" width="720" height="560" rx="18" fill="#fff" stroke="#e5e7ef" stroke-width="2"/>
+<rect x="40" y="40" width="720" height="52" rx="18" fill="#f5f6fb"/><rect x="40" y="74" width="720" height="18" fill="#f5f6fb"/>
+<circle cx="68" cy="66" r="6" fill="#f87171"/><circle cx="90" cy="66" r="6" fill="#fbbf24"/><circle cx="112" cy="66" r="6" fill="#34d399"/>
+<rect x="150" y="56" width="360" height="20" rx="10" fill="#e5e7ef"/>
+<text x="72" y="150" font-family="Arial,sans-serif" font-weight="700" font-size="30" fill="#111827">Comunidad</text>
+<text x="72" y="178" font-family="Arial,sans-serif" font-size="15" fill="#5b6475">Reemplazar por una captura real de los posteos</text>
+<rect x="72" y="210" width="656" height="108" rx="14" fill="#f5f6fb"/><circle cx="108" cy="246" r="20" fill="url(#g)"/><rect x="140" y="232" width="140" height="11" rx="5" fill="#111827" fill-opacity=".75"/><rect x="140" y="254" width="420" height="9" rx="4" fill="#111827" fill-opacity=".2"/><rect x="140" y="274" width="360" height="9" rx="4" fill="#111827" fill-opacity=".2"/><rect x="72" y="334" width="656" height="108" rx="14" fill="#f5f6fb"/><circle cx="108" cy="370" r="20" fill="url(#g)"/><rect x="140" y="356" width="140" height="11" rx="5" fill="#111827" fill-opacity=".75"/><rect x="140" y="378" width="380" height="9" rx="4" fill="#111827" fill-opacity=".2"/><rect x="140" y="398" width="390" height="9" rx="4" fill="#111827" fill-opacity=".2"/><rect x="72" y="458" width="656" height="108" rx="14" fill="#f5f6fb"/><circle cx="108" cy="494" r="20" fill="url(#g)"/><rect x="140" y="480" width="140" height="11" rx="5" fill="#111827" fill-opacity=".75"/><rect x="140" y="502" width="340" height="9" rx="4" fill="#111827" fill-opacity=".2"/><rect x="140" y="522" width="420" height="9" rx="4" fill="#111827" fill-opacity=".2"/>
+</svg>
